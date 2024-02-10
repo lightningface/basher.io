@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Add a Contact</title>
+	<link rel="stylesheet" type="text/css" href="mystyles.css" />
+	<script>
+	// This Javascript function is called when our form is submitted
+	function validateForm() {
+		// Use DOM to see if the value of form field is blank
+		// Notice two "=="!  In many languages, checking an equal condition is "==",
+		// but setting a variable is one "="!
+		if (document.getElementById('locationname').value == ""){
+			alert ("Please enter a dessert shop name!");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	</script>
+</head>
+
+<body style="background-color:gray">
+<div id="maindiv">
+	<h1>Add a Dessert Shop</h1>
+	
+	<!-- if you have data to send, use the form element.  “post” is a way to 
+	send data, and “action” is what page to go to when the form is submitted.
+	"onsubmit" is an event - when the form is submitted, run validateForm() in Javascript.
+	if validateForm() returns true, submit form and go to save_location.php.  If false, stay here!-->
+	<form method="post" action="save_location.php" onsubmit="return validateForm()">	
+	
+	<!-- Use inputs to collect your data in a form -->
+	<p>Dessert Shop Name: <input type="text" name="locationname" id="locationname"></p>
+	<p>Full Address (street, city, state): <input type="text" name="address" id="address"></p>
+
+	<!-- Clicking the submit button sends the input data to the next page -->
+	<input type="submit">
+	</form>
+	
+</div>
+</body>
+</html>
